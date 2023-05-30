@@ -1,4 +1,4 @@
-package io.spring.batch.springbatch;
+package io.spring.batch.springbatch.job;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -12,14 +12,14 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
-public class DBJonConfiguration {
+public class JobConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
-    @Bean
+//    @Bean
     public Job job() {
         return jobBuilderFactory.get("job")
                 .start(step1())
@@ -27,8 +27,7 @@ public class DBJonConfiguration {
                 .build();
     }
 
-
-    @Bean
+//    @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
                 .tasklet(new Tasklet() {
@@ -41,7 +40,7 @@ public class DBJonConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Step step2() {
         return stepBuilderFactory.get("step2")
                 .tasklet(new Tasklet() {
