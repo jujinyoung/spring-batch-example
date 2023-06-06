@@ -31,5 +31,7 @@ spring:
   batch:
     jdbc:
       initialize-schema: always
-#    job:
-#      enabled: false
+    job:
+      enabled: false
+server:
+  port: 8081
