@@ -1,4 +1,4 @@
-package io.spring.batch.springbatch.job.advanced;
+package io.spring.batch.springbatch.job.advanced.job;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -17,13 +17,13 @@ import org.springframework.context.annotation.Configuration;
 
 
 @RequiredArgsConstructor
-@Configuration
+//@Configuration
 public class JobConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
-    @Bean
+//    @Bean
     public Job batchJob1(){
         return jobBuilderFactory.get("batchJob1")
                 .incrementer(new RunIdIncrementer())
@@ -32,7 +32,7 @@ public class JobConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Job batchJob2(){
         return jobBuilderFactory.get("batchJob2")
                 .start(flow())
@@ -41,7 +41,7 @@ public class JobConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
                 .tasklet((stepContribution, chunkContext) -> {
@@ -53,7 +53,7 @@ public class JobConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Step step2() {
         return stepBuilderFactory.get("step2")
                 .tasklet((stepContribution, chunkContext) -> {
@@ -66,7 +66,7 @@ public class JobConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Flow flow() {
         FlowBuilder<Flow> flowBuilder = new FlowBuilder<>("flow");
         flowBuilder.start(step3())
@@ -75,7 +75,7 @@ public class JobConfiguration {
         return flowBuilder.build();
     }
 
-    @Bean
+//    @Bean
     public Step step3() {
         return stepBuilderFactory.get("step3")
                 .tasklet((stepContribution, chunkContext) -> {
@@ -87,7 +87,7 @@ public class JobConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Step step4() {
         return stepBuilderFactory.get("step4")
                 .tasklet((stepContribution, chunkContext) -> {
@@ -100,7 +100,7 @@ public class JobConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Step step5() {
         return stepBuilderFactory.get("step5")
                 .tasklet((stepContribution, chunkContext) -> {
