@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Configuration;
 
 
 @RequiredArgsConstructor
-@Configuration
+//@Configuration
 public class ValidatorConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
-    @Bean
+//    @Bean
     public Job batchJob(){
         return jobBuilderFactory.get("validJob")
                 .start(step1())
@@ -27,7 +27,7 @@ public class ValidatorConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
                 .tasklet((stepContribution, chunkContext) -> {
@@ -39,7 +39,7 @@ public class ValidatorConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Step step2() {
         return stepBuilderFactory.get("step2")
                 .tasklet((stepContribution, chunkContext) -> {
@@ -52,7 +52,7 @@ public class ValidatorConfiguration {
                 .build();
     }
 
-    @Bean
+//    @Bean
     public Step step3() {
         return stepBuilderFactory.get("step3")
                 .tasklet((stepContribution, chunkContext) -> {
